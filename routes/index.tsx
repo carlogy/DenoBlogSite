@@ -15,9 +15,9 @@ const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui 
         <title>Daily Blog</title>
       </Head>
       <Header />
-      <div class="pt-5 mx-40  ">
+      <div class="pt-5 ml-2  ">
       <h1 class={ `text-4xl  font-semibold text-[#323232] pb-5`}>Home</h1>
-      <p>{homeStartingContent}</p>
+      <p class={`pr-4 pl-1`} >{homeStartingContent}</p>
       </div>
       <Footer />
     </>

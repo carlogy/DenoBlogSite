@@ -11,9 +11,9 @@ export default function Post(props: PageProps) {
     return (
         <>
         <Header />
-        <div class={'mx-40 mt-5'}>
-        <h1 class={ `text-4xl  font-semibold text-[#323232] pb-5`}>Title Goes Here</h1>
-        <p>This is the first Post</p>
+        <div class={'mt-5 px-2'}>
+        <h1 class={ `text-4xl  font-semibold text-[#323232] pb-3`}>Title Goes Here</h1>
+        <p class={`text-[#323232] px-2`} >This is the first Post</p>
         </div>
         <Footer />
         </>
