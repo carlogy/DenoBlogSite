@@ -1,5 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { Header } from "../components/Header.tsx";
+import { Footer } from '../components/Footer.tsx';
+
 
 
 export default function ComposeBlog() {
@@ -9,33 +11,36 @@ export default function ComposeBlog() {
         <title>Compose</title>
       </Head>
             <Header />
-            {/* <div class='container mx-auto px-10'></div> */}
-            <h1 class='text-3xl ml-40'>Compose</h1>
+
+            <h1 class={ `text-4xl ml-40 font-semibold text-[#323232] pt-5`}>Compose</h1>
             <form class='mx-40 mt-5'>
-                    <div>
-                    <label>Title</label>
+                    <div class={``}>
+                    <label class={`text-[#323232] text-lg`}>Title</label>
                     <input type="text"
                         class='w-full
                                border
                                solid
-                                border-color-grey
-                                rounded'/>
+                                border-[#323232]
+                                rounded
+                                mt-1
+                                pt-1'
+                                />
                     </div>
 
-                     <div>
-                        <label>Post</label>
+                     <div class={`pt-1`}>
+                        <label class={`text-[#323232] text-lg `} >Post</label>
                         <textarea class='w-full
                                          border
                                          solid
-                                         border-color-grey
+                                         border-[#323232]
                                          rounded'></textarea>
                     </div>
-                    <div class='bg-green-400 border-green-400 rounded border solid w-1/4 text-center'>
+                    <div class='bg-[#0D7377] border-[#0D7377] rounded border solid w-1/4 text-center'>
                     <button type='submit'>Publish</button>
                     </div>
-
-
-            </form>
+             </form>
+            <Footer />
         </div>
+
     )
 }
