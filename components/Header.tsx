@@ -15,7 +15,7 @@ export function Header() {
 
 <li class=' px-2' id="home"><a href="/">HOME</a></li>
 <li class=' px-2' id="about"><a href="/compose">COMPOSE</a></li>
-<li class=' px-2' id="contact"><a href="/contact">CONTACT</a></li>
+<li class=' px-2' id="contact"><a href="/posts">POSTS</a></li>
 </ul>
 
 

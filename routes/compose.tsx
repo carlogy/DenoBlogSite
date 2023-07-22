@@ -1,7 +1,45 @@
 import { Head } from "$fresh/runtime.ts";
+import { Handlers } from "$fresh/server.ts";
 import { Header } from "../components/Header.tsx";
 import { Footer } from '../components/Footer.tsx';
+import { savePost } from "../utils/db.ts";
+import { stringify } from "$std/dotenv/mod.ts";
 
+
+
+export const handler: Handlers = {
+    GET(_, ctx) {
+        return ctx.render();
+
+    },
+   async POST(req) {
+        const form = await req.formData();
+
+        const formTitle = new String(form.get("title"));
+        const binder = "_jqz_";
+        const formPostContent = new String(form.get("postContent"));
+
+        const title = formTitle.concat(binder.toString(), formPostContent.toString());
+
+        // form.get("title") + "_" + form.get("postContent");
+        const content = form.get("postContent")
+        if (title === null) {
+            return new Response("Invalid content" , {status: 400});
+        }
+
+        const id = await savePost(title);
+
+
+
+        return new Response("", {
+            status: 302,
+            headers: {
+               Location: `/post/${id}`,
+            },
+        });
+
+    }
+}
 
 
 export default function ComposeBlog() {
@@ -13,7 +51,7 @@ export default function ComposeBlog() {
             <Header />
 
             <h1 class={ `text-4xl font-semibold text-[#323232] pl-1 pt-5 md:mx-2`}>Compose</h1>
-            <form class='mt-5 px-2 md:mx-2'>
+            <form action="/compose" method="post" class='mt-5 px-2 md:mx-2'>
                     <div class={``}>
                     <label class={`text-[#323232] text-lg`}>Title</label>
                     <input type="text"
@@ -26,7 +64,7 @@ export default function ComposeBlog() {
                                 pt-1
                                 text-[#323232]
                                 focus:border-[#212121]`}
-                                />
+                                name="title" />
                     </div>
 
                      <div class={`pt-1`}>
@@ -35,7 +73,9 @@ export default function ComposeBlog() {
                                          border
                                          solid
                                          border-[#323232]
-                                         rounded'></textarea>
+                                         rounded'
+                                    name="postContent"
+                                    type="text"></textarea>
                     </div>
                     <div class='bg-[#0D7377] border-[#0D7377] rounded border solid w-1/4 text-center'>
                     <button class={`text-[#323232]`} type='submit'>Publish</button>
