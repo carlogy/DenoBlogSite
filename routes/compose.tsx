@@ -74,8 +74,17 @@ export default function ComposeBlog() {
                                     type="text"
                                     required></textarea>
                     </div>
-                    <div class='bg-[#0D7377] border-[#0D7377] rounded border solid w-1/4 text-center'>
-                    <button class={`text-[#323232]`} type='submit'>Publish</button>
+                    <div class=''>
+                    <button class={`bg-[#0D7377]
+                                    border-[#0D7377]
+                                    rounded
+                                    border
+                                    solid
+                                    w-1/4
+                                    text-center
+                                    hover:font-semibold
+                                    text-[#323232]
+                                    active:border-black`} type='submit'>Publish</button>
                     </div>
              </form>
             <Footer />

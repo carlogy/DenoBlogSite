@@ -61,14 +61,15 @@ export default function Post(props: PageProps) {
         <form
               method="post">
          <button type="submit"
-         class={`p-2 bg-[#0D7377]
-                 text-[#323232]
-                 border
-                 border-solid
+         class={`bg-[#0D7377]
+                 border-[#0D7377]
                  rounded
+                 border
+                 solid
                  w-1/4
                  text-center
                  hover:font-semibold
+                 text-[#323232]
                  active:border-black`}> Delete Post</button>
         </form>
         </div>
