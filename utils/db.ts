@@ -13,7 +13,7 @@ export async function savePost(title: string): Promise<string> {
 
 export async function getPost(id: string): Promise<string> {
     const res = await kv.get(["posts", id]);
-    return <string>res.value;
+    return <string>res.value
 }
 
 export async function listPosts():  Promise<[string, string][]> {
@@ -26,4 +26,10 @@ export async function listPosts():  Promise<[string, string][]> {
     }
 
     return postList;
+}
+
+export async function deletePost(id: string): Promise<string> {
+     const res = await kv.delete(["posts", id]);
+  return `deleted record ${res}`;
+
 }

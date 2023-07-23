@@ -3,8 +3,6 @@ import { Handlers } from "$fresh/server.ts";
 import { Header } from "../components/Header.tsx";
 import { Footer } from '../components/Footer.tsx';
 import { savePost } from "../utils/db.ts";
-import { stringify } from "$std/dotenv/mod.ts";
-
 
 
 export const handler: Handlers = {
@@ -21,15 +19,12 @@ export const handler: Handlers = {
 
         const title = formTitle.concat(binder.toString(), formPostContent.toString());
 
-        // form.get("title") + "_" + form.get("postContent");
-        const content = form.get("postContent")
+        // const content = form.get("postContent")
         if (title === null) {
             return new Response("Invalid content" , {status: 400});
         }
 
         const id = await savePost(title);
-
-
 
         return new Response("", {
             status: 302,
@@ -64,7 +59,8 @@ export default function ComposeBlog() {
                                 pt-1
                                 text-[#323232]
                                 focus:border-[#212121]`}
-                                name="title" />
+                                name="title"
+                                required />
                     </div>
 
                      <div class={`pt-1`}>
@@ -75,7 +71,8 @@ export default function ComposeBlog() {
                                          border-[#323232]
                                          rounded'
                                     name="postContent"
-                                    type="text"></textarea>
+                                    type="text"
+                                    required></textarea>
                     </div>
                     <div class='bg-[#0D7377] border-[#0D7377] rounded border solid w-1/4 text-center'>
                     <button class={`text-[#323232]`} type='submit'>Publish</button>
