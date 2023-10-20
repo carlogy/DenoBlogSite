@@ -65,6 +65,7 @@ export default function ComposeBlog() {
 
                      <div class={`pt-1`}>
                         <label class={`text-[#323232] text-lg `} >Post</label>
+
                         <textarea class='w-full
                                          border
                                          solid
