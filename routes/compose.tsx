@@ -56,7 +56,7 @@ export default function ComposeBlog() {
                                 border-[#323232]
                                 rounded
                                 mt-1
-                                pt-1
+                                px-1
                                 text-[#323232]
                                 focus:border-[#212121]`}
                                 name="title"
@@ -69,7 +69,8 @@ export default function ComposeBlog() {
                                          border
                                          solid
                                          border-[#323232]
-                                         rounded'
+                                         rounded
+                                         px-1'
                                     name="postContent"
                                     type="text"
                                     required></textarea>
